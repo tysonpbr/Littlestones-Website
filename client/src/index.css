@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Inter', sans-serif;
+  /* 
+  FONT FAMILIES
+  font-family: 'Amatic SC', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
+  */
+  font-family: 'Amatic SC', cursive;
+  scroll-behavior: smooth;
 }
 
 @media screen and (min-width: 480px) {

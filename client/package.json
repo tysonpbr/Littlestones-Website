@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.9",
+    "@heroicons/react": "^2.0.14",
+    "bootstrap": "^5.2.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.0",
+    "react-bootstrap-dropdown": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.0"
   },
