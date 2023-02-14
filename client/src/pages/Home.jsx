@@ -72,7 +72,7 @@ const Home = () => {
                 <Link to='/services' className="">
                   <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 w-48 flex justify-center font-bold tracking-widest text-xl">See Our Services</button>
                 </Link>
-                <Link to='/contact' className="hidden lg:flex">
+                <Link to='/contact' className="hidden md:flex">
                   <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 w-48 flex justify-center font-bold tracking-widest text-xl">Contact Us</button>
                 </Link>
               </div>
@@ -86,7 +86,7 @@ const Home = () => {
                 confident in my abilities and determined to reach my goals, but I never lose sight of the importance of having fun and enjoying the journey.
               </p>
             </div>
-            <Link to='/contact' className="flex lg:hidden">
+            <Link to='/contact' className="flex md:hidden">
               <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 w-48 flex justify-center font-bold tracking-widest text-xl">Contact Us</button>
             </Link>
           </div>
