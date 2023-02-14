@@ -19,9 +19,11 @@ module.exports = {
       },
       minWidth: {
         'home': '105vw',
+        'homeLg': '120vw',
       },
       minHeight: {
         'home': '105vh',
+        'homeLg': '120vw',
       },
     },
   },

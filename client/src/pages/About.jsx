@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter, Link, Route, Routes, NavLink } from 'react-router-dom';
 
 import { about1, about2 } from '../assets/';
 
@@ -14,11 +15,11 @@ const About = () => {
             of people in my life. Although I lead a busy lifestyle, I always make time for those who are important to me. Whether it's climbing mountains, 
             discovering new cultures, or just having a quiet night in, I approach each experience with a positive outlook and a thirst for knowledge.
           </p>
-          <div className="p-8 lg:pt-12">
+          <Link to='/contact' className="p-8 lg:pt-12">
             <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 w-48 flex justify-center font-bold tracking-widest text-xl">Contact Me</button>
-          </div>
+          </Link>
         </div>
-        <img src={about1} className="px-8 lg:pl-12 w-full lg:max-w-xl" />
+        <img src={about1} className="px-8 lg:pl-12 w-full lg:max-w-xl lg:mt-8" />
       </div>
       <div className="w-full flex flex-col lg:flex-row justify justify-center items-center md:px-16 md:pt-0">
         <img src={about2} className="hidden lg:flex p-8 lg:pl-12 lg:max-w-xl" />
