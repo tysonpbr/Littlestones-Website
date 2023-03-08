@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { contact1 } from '../assets/';
-import { FormField } from '../components';
+import { FormField, FormFieldLarge } from '../components';
 
 const Contact = () => {
   const [form, setForm] = useState({ 
@@ -10,7 +10,37 @@ const Contact = () => {
     message:'',
   });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const [sent, setSent] = useState(false);
+
+  const handleChange = (e) => {
+    if (!sent) {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    }
+  }
+  const handleSubmit = async (e) => {
+    if (form.name && form.email && form.message) {
+      try {
+        setSent(true);
+        const response = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            body: form.message,
+          }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+        
+      } catch (err) {
+        alert(err);
+      } 
+    }
+  }
 
   return (
     <div className="pt-topsm md:pt-topmd lg:pt-top">
@@ -35,7 +65,7 @@ const Contact = () => {
               value={form.email}
               handleChange={handleChange}
             />
-            <FormField 
+            <FormFieldLarge
               labelName="Message"
               type="text"
               name="message"
@@ -45,7 +75,11 @@ const Contact = () => {
             />
           </form>
           <div className="py-8 flex justify-left">
-            <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 w-full flex justify-center font-bold tracking-widest text-xl">Submit</button>
+            {!sent ? (
+              <button onClick={handleSubmit} className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 flex justify-center font-bold tracking-widest text-xl w-full">Submit</button>
+            ) : (
+              <button className="text-white p-4 bg-zinc-700 flex justify-center font-bold tracking-widest text-xl w-full">Message Submitted!</button>
+            )}
           </div>
         </div>
         <img src={contact1} className="px-8 lg:pl-12 lg:max-w-xl asp" />
@@ -67,7 +101,7 @@ const Contact = () => {
               value={form.email}
               handleChange={handleChange}
             />
-            <FormField 
+            <FormFieldLarge 
               labelName="Message"
               type="text"
               name="message"
@@ -77,7 +111,11 @@ const Contact = () => {
             />
           </form>
           <div className="pt-8 flex">
-            <button className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 flex justify-center font-bold tracking-widest text-xl w-full">Submit</button>
+            {!sent ? (
+              <button onClick={handleSubmit} className="text-white p-4 bg-zinc-700 hover:bg-zinc-800 flex justify-center font-bold tracking-widest text-xl w-full">Submit</button>
+            ) : (
+              <button className="text-white p-4 bg-zinc-700 flex justify-center font-bold tracking-widest text-xl w-full">Message Submitted!</button>
+            )}
           </div>
         </div>
       </div>
