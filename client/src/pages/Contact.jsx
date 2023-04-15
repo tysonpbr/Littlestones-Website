@@ -21,7 +21,7 @@ const Contact = () => {
     if (form.name && form.email && form.message) {
       try {
         setSent(true);
-        const response = await fetch('http://localhost:5000/api/contact', {
+        const response = await fetch('https://littlestones-creations.onrender.com/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

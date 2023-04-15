@@ -30,19 +30,19 @@ function App() {
           {isOpen && (
             <ul className="relative w-full z-10 bg-white font-normal tracking-widest text-black flex flex-col items-center py-3">
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/' className="font-sans" onClick={toggle}>Home</Link>
+                <Link to='/' className="w-full font-sans text-center" onClick={toggle}>Home</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/about' className="font-sans" onClick={toggle}>About</Link>
+                <Link to='/about' className="w-full font-sans text-center" onClick={toggle}>About</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/gallery' className="font-sans" onClick={toggle}>Gallery</Link>
+                <Link to='/gallery' className="w-full font-sans text-center" onClick={toggle}>Gallery</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/services' className="font-sans" onClick={toggle}>Services</Link>
+                <Link to='/services' className="w-full font-sans text-center" onClick={toggle}>Services</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/contact' className="font-sans" onClick={toggle}>Contact</Link>
+                <Link to='/contact' className="w-full font-sans text-center" onClick={toggle}>Contact</Link>
               </li>
             </ul>
           )}
