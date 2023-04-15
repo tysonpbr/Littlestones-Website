@@ -4,12 +4,15 @@ import { BrowserRouter, Link, Route, Routes, NavLink } from 'react-router-dom';
 import { About, Contact, Gallery, Home, Services } from './pages';
 import { iconFacebook, iconTwitter, iconInstagram } from './assets';
 
+import { ScrollToTop } from './components';
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       {
         // Navbar
       }
@@ -36,7 +39,7 @@ function App() {
                 <Link to='/gallery' className="font-sans" onClick={toggle}>Gallery</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
-                <Link to='/services' className="font-sans" onClick={toggle}>Sercives</Link>
+                <Link to='/services' className="font-sans" onClick={toggle}>Services</Link>
               </li>
               <li className="py-3 hover:bg-gray-300 w-full flex justify-center">
                 <Link to='/contact' className="font-sans" onClick={toggle}>Contact</Link>

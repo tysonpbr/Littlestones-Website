@@ -1,15 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Card = ({ description, photo }) => {
+  const [selected, setSelected] = useState(false);
+
+  const clicked = (e) => {
+    setSelected(!selected)
+    setTimeout(() => {
+      e.target.scrollIntoView({ 
+        behavior: "smooth", 
+        block: "center", 
+        inline: "nearest" 
+      })
+    }, 50)
+  }
+
   return (
-    <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card lg:max-h-56 lg:w-auto">
-      <img
-        className='w-full h-auto object-cover rounded-xl lg:max-h-56 lg:w-auto'
-        src={photo}
-        alt={description}
-      />
-      <div className='group-hover:flex flex-col max-h-[94.5%] hidden absolute bottom-0 left-0 right-0 bg-zinc-700 m-2 rounded-md opacity-90'>
-        <p className='text-white text-md overflow-y-auto prompt font-sans p-4'>{description}</p>
+    <div>
+      <div className='hidden md:flex'>
+        {!selected ? (
+          <div className="rounded-xl relative max-h-56 w-auto" onClick={(e) => clicked(e)}>
+            <img
+              className='h-auto object-cover rounded-xl md:max-h-36 lg:max-h-56 w-auto hover:lg:border-16 hover:lg:rounded-3xl border-white'
+              src={photo}
+              alt={description}
+            />
+          </div>
+        ) : (
+          <div className="rounded-xl relative w-full h-auto lg:h-zoom lg:w-auto" onClick={(e) => clicked(e)}>
+            <img
+              className='object-cover rounded-xl w-full h-auto lg:h-zoom lg:w-auto'
+              src={photo}
+              alt={description}
+            />
+          </div>
+        )}
+      </div>
+      <div className="flex md:hidden">
+        <div className="rounded-xl relative h-auto w-full">
+          <img
+            className='h-auto w-full object-cover rounded-xl border-white'
+            src={photo}
+            alt={description}
+          />
+        </div>
       </div>
     </div>
   )
